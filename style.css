@@ -1,0 +1,63 @@
+body {
+  background-image: url('http://orig13.deviantart.net/32ba/f/2012/343/3/9/pokemon_background_by_iwildblood-d5nhuuq.png');
+  background-size: auto;
+  animation: 200s scroll infinite linear;
+}
+
+@keyframes scroll{
+  100%{
+    background-position:-3000px 0;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  img {
+    display: block;
+    height: 80px;
+    margin-bottom: 12px;
+  }
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+}
+
+.card-img {
+  height: 190px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.card-detail {
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-paragraph {
+  font-size: 2em;
+  text-align: center;
+}
+
+.span-loading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  img {
+    height: 140px;
+  }
+}
+
+.result {
+  display: flex;
+  max-width: 458px;
+  justify-content: center;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  transition: .3s;
+  opacity: 0;
+  visibility: hidden;
+}

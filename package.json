@@ -1,0 +1,33 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.2",
+  "description": "Boilerplate",
+  "main": "main.js",
+  "scripts": {
+    "serve": "browser-sync start --server --files '*.css, *.js, *.html'",
+    "css": "postcss -c postcss-options.json",
+    "css:watch": "npm run css -- -w",
+    "watch:all": "parallelshell 'npm run serve' 'npm run css:watch'",
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baltazarparra/boilerplate.git"
+  },
+  "author": "Baltazar Parra <baltazarparra> (https://baltazarparra.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baltazarparra/boilerplate/issues"
+  },
+  "homepage": "https://github.com/baltazarparra/boilerplate#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "cssnano": "^3.10.0",
+    "cssnext": "^1.8.4",
+    "parallelshell": "^2.0.0",
+    "postcss": "^5.2.8",
+    "precss": "^1.4.0",
+    "watch": "^1.0.1"
+  }
+}
