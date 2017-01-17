@@ -1,4 +1,4 @@
-# Clash Royale Filter
+# Pokemon Card Filter
 
 Estudo de Javascript
 
