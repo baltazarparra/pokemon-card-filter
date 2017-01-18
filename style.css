@@ -52,8 +52,7 @@ body {
 }
 
 .result {
-  display: flex;
-  max-width: 458px;
+  display: flex;  
   justify-content: center;
   margin: 40px auto;
   flex-wrap: wrap;

@@ -13,7 +13,7 @@
     return {
       requisition: function requisition() {
         const ajax = new XMLHttpRequest();
-        ajax.open('GET', 'https://api.pokemontcg.io/v1/cards', true);
+        ajax.open('GET', 'https://api.pokemontcg.io/v1/cards?series=base&pageSize=151', true);
         ajax.send();
         ajax.addEventListener('readystatechange', this.dataHandle, false)
       },
@@ -26,7 +26,7 @@
         
         let rarityCards = [];
         data.cards.map(function (card) {
-          rarityCards.push(card.rarity);
+          rarityCards.push(card.set);
         });
         let rarityCardsArr = rarityCards.filter(function(elem, pos) {
           return rarityCards.indexOf(elem) == pos;
@@ -53,7 +53,7 @@
       cardsHandle: function cardsHandle(data) {
         $select.addEventListener('change', function() {
           let filterUrl = event.target.value,
-          url = filterUrl + '.html';
+          url = filterUrl.toLowerCase() + '.html';
           history.pushState(null, null, url);
 
           let choiceRarity = event.target.value;
@@ -62,7 +62,7 @@
           dataArr.push(data);
           dataArr[0].cards.filter( function(item) {
             let $img = document.createElement("img");
-            if (item.rarity === choiceRarity) {
+            if (item.set === choiceRarity) {
               $img.setAttribute('class', 'card-img');
               $img.setAttribute('src', item.imageUrl);
               $img.setAttribute('title', item.name + ': by ' + item.artist);
@@ -91,7 +91,7 @@
           $div.appendChild($paragraph);
           $result.appendChild($div);
           let cardUrl = event.target.getAttribute('alt'),
-          url = cardUrl + '.html';
+          url = cardUrl.toLowerCase() + '.html';
           history.pushState(null, null, url);
         });
       },
@@ -112,6 +112,10 @@
       }
     };
   })();
+  
+  window.addEventListener("popstate", function(e) {
+      console.log(JSON.parse(history.state));
+  });
 
   app.requisition();
 
